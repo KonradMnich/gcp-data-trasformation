@@ -1,0 +1,14 @@
+[project]
+name = "gcp-data-trasformation"
+version = "0.1.0"
+description = "An application on GCP services that consumes the data from the Pub/Sub topic and stores it in BigQuery"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = []
+
+[dependency-groups]
+dev = [
+    "functions-framework>=3.5,<4",
+    "google-cloud-bigquery-storage>=2.24,<3",
+    "protobuf>=4.25,<6"
+]

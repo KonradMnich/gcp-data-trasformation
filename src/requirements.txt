@@ -1,0 +1,6 @@
+# Runtime dependencies of the Cloud Run function.
+# 'gcloud functions deploy --source=src' installs exactly this file.
+# The unit tests (tests/) need NONE of these - transform.py is stdlib-only.
+functions-framework>=3.5,<4
+google-cloud-bigquery-storage>=2.24,<3
+protobuf>=4.25,<6

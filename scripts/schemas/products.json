@@ -1,0 +1,66 @@
+[
+  {
+    "name": "id",
+    "type": "STRING",
+    "mode": "REQUIRED",
+    "description": "Unique product identifier (UUID from the source system)"
+  },
+  {
+    "name": "name",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Product name"
+  },
+  {
+    "name": "description",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Product description"
+  },
+  {
+    "name": "is_in_stock",
+    "type": "BOOLEAN",
+    "mode": "NULLABLE",
+    "description": "Stock availability (parsed from stringified boolean)"
+  },
+  {
+    "name": "price",
+    "type": "NUMERIC",
+    "mode": "NULLABLE",
+    "description": "Product price (parsed from stringified float; NUMERIC avoids binary float rounding for money)"
+  },
+  {
+    "name": "last_update",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE",
+    "description": "Timestamp of last update in the source system; NULL if the source format could not be parsed"
+  },
+  {
+    "name": "last_update_raw",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Original last_update string as received, kept as fallback for unparseable formats"
+  },
+  {
+    "name": "attributes",
+    "type": "RECORD",
+    "mode": "REPEATED",
+    "description": "Key-value product attributes",
+    "fields": [
+      { "name": "key", "type": "STRING", "mode": "NULLABLE" },
+      { "name": "value", "type": "STRING", "mode": "NULLABLE" }
+    ]
+  },
+  {
+    "name": "message_id",
+    "type": "STRING",
+    "mode": "NULLABLE",
+    "description": "Pub/Sub message id, for traceability back to products_raw"
+  },
+  {
+    "name": "ingested_at",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE",
+    "description": "Time the row was written by the pipeline (partitioning column)"
+  }
+]

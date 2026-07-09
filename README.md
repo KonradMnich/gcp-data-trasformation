@@ -51,7 +51,7 @@ As of now the deployment is done through PowerShell scripts. Each script serves 
 - 02-create-bigquery.ps1: creates the BigQuery dataset and tables
 - 03-create-pubsub.ps1: creates the Pub/Sub topic and subscription
 - 04-deploy-function.ps1: deploys the function to Cloud Run
-- 05-configure-dlq.ps1: configures the DLQ subscription
+- 05-grant-publisher.ps1: grant publishing right to an external service account
 - 06-test-publish.ps1: publishes test messages to the topic
 
 New deployment does not require all scripts to be run. For example, if the python parser changes, only 04-deploy-function.ps1 needs to be run.
